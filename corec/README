@@ -1,0 +1,29 @@
+cabal notes
+
+init         Interactively create a .cabal file.
+configure    Prepare to build the package.
+build        Make this package ready for installation.
+test         Run the test suite (configure with UserHooks).
+bench        Run the benchmark (configure with UserHooks).
+sdist        Generate a source distribution file (.tar.gz).
+upload       Uploads source packages to Hackage
+
+
+configure and build:
+cabal configure && cabal build
+
+test:
+cabal configure --enable-tests && cabal build && cabal test
+cabal configure --disable-tests && cabal build
+
+benchmarks:
+cabal configure --enable-bench && cabal build && cabal bench
+cabal configure --disable-bench && cabal build
+
+./dist/build/corecBench/corecBench -o corecBench.html
+
+generate documentation:
+cabal haddock
+
+save distribution tarball in dist/:
+cabal sdist
